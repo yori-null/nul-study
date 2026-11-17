@@ -1,0 +1,91 @@
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sky__layer,
+.sky__rays,
+.sky__haze,
+.sky__glow,
+.sky__canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.sky__layer {
+  transition: opacity 2.6s var(--ease-in-out);
+}
+
+.sky__layer--day {
+  background:
+    radial-gradient(120% 70% at 50% 110%, rgba(229, 245, 255, 0.95) 0%, rgba(168, 220, 255, 0) 60%),
+    radial-gradient(80% 60% at 85% 0%, rgba(84, 228, 255, 0.35) 0%, transparent 60%),
+    linear-gradient(180deg, #1f7fd6 0%, #3d9fea 28%, #57b8f5 52%, #a8dcff 80%, #e5f5ff 100%);
+}
+
+.sky__layer--dusk {
+  opacity: 0;
+  background:
+    radial-gradient(100% 60% at 50% 105%, rgba(255, 217, 203, 0.55) 0%, transparent 55%),
+    radial-gradient(70% 50% at 15% 10%, rgba(220, 223, 255, 0.4) 0%, transparent 60%),
+    linear-gradient(180deg, #12518a 0%, #2a6fbf 40%, #57b8f5 75%, #a8dcff 100%);
+}
+
+.sky__layer--night {
+  opacity: 0;
+  background:
+    radial-gradient(90% 60% at 50% 120%, rgba(37, 137, 255, 0.35) 0%, transparent 60%),
+    radial-gradient(60% 40% at 80% 10%, rgba(84, 228, 255, 0.12) 0%, transparent 60%),
+    linear-gradient(180deg, #050f22 0%, #0b1f3d 35%, #102c50 70%, #12518a 100%);
+}
+
+.sky--dusk .sky__layer--dusk {
+  opacity: 1;
+}
+
+.sky--night .sky__layer--night {
+  opacity: 1;
+}
+
+.sky__rays {
+  inset: -20% -10% 30% -10%;
+  background: repeating-conic-gradient(from 200deg at 70% -10%, rgba(255, 255, 255, 0.16) 0deg 4deg, transparent 4deg 13deg);
+  mask-image: radial-gradient(70% 70% at 70% 0%, #000 0%, transparent 75%);
+  -webkit-mask-image: radial-gradient(70% 70% at 70% 0%, #000 0%, transparent 75%);
+  transform-origin: 70% 0%;
+  animation: rays 14s var(--ease-in-out) infinite;
+  transition: opacity 2s;
+  mix-blend-mode: soft-light;
+}
+
+.sky--night .sky__rays {
+  opacity: 0 !important;
+}
+
+.sky__haze {
+  background: radial-gradient(60% 40% at 50% 50%, rgba(248, 252, 255, 0.12), transparent 70%);
+}
+
+.sky__glow {
+  background: radial-gradient(60% 55% at 50% 50%, rgba(255, 255, 255, 0.95), rgba(229, 245, 255, 0.6) 40%, transparent 75%);
+  opacity: var(--glow, 0);
+  transition: opacity 1.2s var(--ease-out);
+}
+
+.sky--music .sky__haze {
+  animation: music-breathe 6s var(--ease-in-out) infinite;
+}
+
+@keyframes music-breathe {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+    background: radial-gradient(70% 50% at 50% 50%, rgba(84, 228, 255, 0.18), transparent 70%);
+  }
+}

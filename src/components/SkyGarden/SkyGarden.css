@@ -1,0 +1,455 @@
+.garden__frame {
+  --px: 0;
+  --py: 0;
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-float), 0 0 0 1px rgba(255, 255, 255, 0.6);
+  background: #57b8f5;
+}
+
+.garden__scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.garden__scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.garden__swipe {
+  display: none;
+}
+
+.garden__svg {
+  width: 100%;
+  height: auto;
+  min-height: 360px;
+  object-fit: cover;
+}
+
+.garden__layer {
+  transition: transform 0.6s var(--ease-out);
+}
+
+.garden__layer--far {
+  transform: translate(calc(var(--px) * -10px), calc(var(--py) * -6px));
+}
+.garden__layer--mid {
+  transform: translate(calc(var(--px) * -22px), calc(var(--py) * -12px));
+}
+.garden__layer--near {
+  transform: translate(calc(var(--px) * -36px), calc(var(--py) * -18px));
+}
+
+.garden__star {
+  animation: twinkle 3s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.is-interactive {
+  cursor: pointer;
+  outline: none;
+}
+
+.is-interactive:focus-visible {
+  filter: drop-shadow(0 0 6px #54e4ff) drop-shadow(0 0 2px #fff);
+}
+
+.garden__cloud {
+  animation: cloud-drift 18s ease-in-out infinite;
+  transform-box: fill-box;
+}
+
+.garden__cloud:hover path:first-child {
+  fill: #fff;
+}
+
+@keyframes cloud-drift {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 40px 6px;
+  }
+}
+
+.garden__island--main,
+.garden__tree,
+.garden__heart,
+.garden__flower,
+.garden__pet {
+  animation: island-float 7s var(--ease-in-out) infinite;
+}
+
+.garden__island--l {
+  animation: island-float 6s var(--ease-in-out) infinite -2s;
+}
+.garden__island--r {
+  animation: island-float 8s var(--ease-in-out) infinite -4s;
+}
+
+@keyframes island-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+.garden__flower:nth-of-type(n) {
+  animation-delay: 0s;
+}
+
+.garden__fall {
+  animation: fall 1.8s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes fall {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.garden__canopy {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition: transform 0.4s var(--ease-spring);
+}
+
+.garden__tree:hover .garden__canopy {
+  transform: scale(1.03);
+}
+
+.garden__tree:active .garden__canopy {
+  transform: scale(0.97);
+}
+
+.garden__fruit {
+  animation: twinkle 2.6s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.garden__heart {
+  transform-box: fill-box;
+}
+
+.garden__heart path {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: heartbeat 1.8s ease-in-out infinite;
+}
+
+/* flowers */
+.garden__petals {
+  transform-box: fill-box;
+  transform-origin: center;
+  scale: 0;
+  transition: scale 0.8s var(--ease-spring);
+}
+
+.garden__flower.is-bloom .garden__petals {
+  scale: 1;
+}
+
+.garden__petals ellipse {
+  transition: transform 0.8s var(--ease-spring);
+}
+
+.garden__bud {
+  transition: opacity 0.3s, scale 0.3s;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: bud 2.4s ease-in-out infinite;
+}
+
+.garden__flower.is-bloom .garden__bud {
+  opacity: 0;
+  scale: 0;
+}
+
+@keyframes bud {
+  50% {
+    scale: 1.12;
+  }
+}
+
+.garden__flower-glow {
+  opacity: 0.15;
+  transition: opacity 0.6s;
+}
+
+.garden__flower.is-bloom .garden__flower-glow {
+  opacity: 1;
+  animation: twinkle 3s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* butterflies */
+.garden__fly {
+  offset-rotate: 0deg;
+}
+
+.garden__fly--0 {
+  animation: fly0 16s ease-in-out infinite;
+}
+.garden__fly--1 {
+  animation: fly1 20s ease-in-out infinite;
+}
+.garden__fly--2 {
+  animation: fly2 13s ease-in-out infinite;
+}
+
+@keyframes fly0 {
+  0%,
+  100% {
+    transform: translate(240px, 330px);
+  }
+  25% {
+    transform: translate(330px, 280px);
+  }
+  50% {
+    transform: translate(420px, 340px);
+  }
+  75% {
+    transform: translate(300px, 360px);
+  }
+}
+@keyframes fly1 {
+  0%,
+  100% {
+    transform: translate(700px, 330px);
+  }
+  30% {
+    transform: translate(800px, 270px);
+  }
+  60% {
+    transform: translate(880px, 300px);
+  }
+}
+@keyframes fly2 {
+  0%,
+  100% {
+    transform: translate(140px, 250px);
+  }
+  50% {
+    transform: translate(220px, 210px);
+  }
+}
+
+.garden__wings {
+  animation: wings 0.35s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes wings {
+  50% {
+    transform: scaleX(0.3);
+  }
+}
+
+/* pet */
+.garden__pet-body {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: pet-idle 2.8s var(--ease-in-out) infinite;
+}
+
+@keyframes pet-idle {
+  0%,
+  100% {
+    transform: translateY(0) scale(1, 1);
+  }
+  50% {
+    transform: translateY(-6px) scale(0.98, 1.03);
+  }
+}
+
+.garden__pet-shadow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: shadow-breathe 2.8s var(--ease-in-out) infinite;
+}
+
+.garden__pet-eyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: blink 4.5s infinite;
+}
+
+.garden__pet-arm {
+  transform-box: fill-box;
+  transform-origin: 50% 90%;
+}
+
+.pet--wave .garden__pet-arm--r {
+  animation: pet-wave 0.4s ease-in-out 3;
+}
+
+.pet--wave .garden__pet-mouth {
+  d: path('M-7 18q7 9 14 0');
+}
+
+@keyframes pet-wave {
+  50% {
+    transform: rotate(-50deg) translate(6px, -10px);
+  }
+}
+
+.pet--celebrate .garden__pet-body {
+  animation: pet-celebrate 0.9s var(--ease-out) 3;
+}
+
+.pet--celebrate .garden__pet-arm {
+  animation: pet-wave 0.3s ease-in-out infinite;
+}
+
+.pet--celebrate .garden__pet-arm--l {
+  animation-name: pet-wave-l;
+}
+
+@keyframes pet-wave-l {
+  50% {
+    transform: rotate(50deg) translate(-6px, -10px);
+  }
+}
+
+@keyframes pet-celebrate {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  40% {
+    transform: translateY(-34px) rotate(-8deg);
+  }
+  70% {
+    transform: translateY(0) scale(1.08, 0.92);
+  }
+}
+
+/* overlays */
+.garden__say {
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  transform: translateX(-50%);
+  max-width: min(440px, 86%);
+  padding: 10px 18px;
+  border-radius: 18px;
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--midnight);
+  background: rgba(248, 252, 255, 0.92);
+  box-shadow: var(--shadow-soft);
+  animation: pop-in 0.4s var(--ease-spring);
+  pointer-events: none;
+}
+
+.garden__hud {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 99px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ocean);
+  background: rgba(248, 252, 255, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.garden__card {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: min(340px, calc(100% - 32px));
+  padding: 22px 22px 20px;
+  border-radius: 20px 20px 6px 20px;
+  background: var(--grad-paper);
+  box-shadow: var(--shadow-float);
+  animation: pop-in 0.5s var(--ease-spring);
+  display: grid;
+  gap: 8px;
+}
+
+.garden__card p {
+  font-family: var(--font-hand);
+  font-size: 1.45rem;
+  line-height: 1.2;
+  color: var(--midnight);
+}
+
+.garden__card-x {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--ink-mute);
+}
+
+.garden__card-x:hover {
+  background: var(--ice);
+}
+
+.garden__tips {
+  margin-top: var(--space-4);
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: var(--fs-sm);
+}
+
+@media (max-width: 640px) {
+  .garden__frame {
+    border-radius: 20px;
+    margin: 0 calc(var(--gutter) * -0.5);
+  }
+  .garden__svg {
+    min-height: 0;
+    width: 760px;
+    max-width: none;
+  }
+  .garden__swipe {
+    display: inline;
+  }
+  .garden__say {
+    font-size: 1.15rem;
+    top: 8px;
+  }
+  .garden__card {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    width: auto;
+    padding: 16px 16px 14px;
+  }
+  .garden__card p {
+    font-size: 1.25rem;
+  }
+  .garden__hud {
+    top: auto;
+    left: 8px;
+    bottom: 8px;
+    font-size: 0.7rem;
+    padding: 6px 10px;
+  }
+}

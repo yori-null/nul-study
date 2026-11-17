@@ -1,0 +1,75 @@
+/* ==========================================================================
+   Design tokens — BLUE WORLD
+   65% blues · 25% white & ice · 7% deep navy · 3% accents
+   ========================================================================== */
+:root {
+  /* Primary palette */
+  --sky: #57b8f5;
+  --electric: #2589ff;
+  --sky-light: #a8dcff;
+  --ice: #e5f5ff;
+  --cloud: #f8fcff;
+  --ocean: #12518a;
+  --midnight: #102c50;
+  --cyan: #54e4ff;
+  --lavender: #dcdfff;
+  --peach: #ffd9cb;
+
+  /* Supporting tones */
+  --ink: #102c50;
+  --ink-soft: #3b5a80;
+  --ink-mute: #6c87a8;
+  --glass: rgba(248, 252, 255, 0.55);
+  --glass-strong: rgba(248, 252, 255, 0.78);
+  --glass-dark: rgba(16, 44, 80, 0.45);
+  --line: rgba(37, 137, 255, 0.18);
+  --line-light: rgba(255, 255, 255, 0.55);
+
+  /* Gradients */
+  --grad-sky: linear-gradient(180deg, #2f8fe0 0%, #57b8f5 38%, #a8dcff 72%, #e5f5ff 100%);
+  --grad-electric: linear-gradient(135deg, #54e4ff 0%, #2589ff 55%, #1c6fe0 100%);
+  --grad-ocean: linear-gradient(160deg, #12518a 0%, #102c50 100%);
+  --grad-paper: linear-gradient(170deg, #ffffff 0%, #f6fbff 55%, #edf6ff 100%);
+
+  /* Typography */
+  --font-serif: 'Fraunces Variable', 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-sans: 'Manrope Variable', 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-hand: 'Caveat', 'Bradley Hand', 'Segoe Print', cursive;
+
+  --fs-xs: 0.78rem;
+  --fs-sm: 0.9rem;
+  --fs-md: 1.02rem;
+  --fs-lg: clamp(1.15rem, 1rem + 0.6vw, 1.4rem);
+  --fs-xl: clamp(1.6rem, 1.2rem + 1.8vw, 2.4rem);
+  --fs-2xl: clamp(2.1rem, 1.4rem + 3.2vw, 3.6rem);
+  --fs-hero: clamp(2.6rem, 1.2rem + 6.5vw, 6.4rem);
+
+  /* Space & shape */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --maxw: 1180px;
+
+  /* Depth */
+  --shadow-soft: 0 10px 30px -12px rgba(16, 44, 80, 0.28);
+  --shadow-float: 0 30px 60px -24px rgba(16, 44, 80, 0.45), 0 8px 18px -10px rgba(18, 81, 138, 0.3);
+  --shadow-glow: 0 0 0 1px rgba(84, 228, 255, 0.35), 0 10px 40px -8px rgba(37, 137, 255, 0.55);
+
+  /* Motion language: soft, floaty, never bouncy-cheap */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 180ms;
+  --dur-med: 420ms;
+  --dur-slow: 900ms;
+}

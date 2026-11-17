@@ -1,0 +1,242 @@
+.mg__box {
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.mg__hud {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 6px 14px;
+  flex-wrap: wrap;
+}
+
+.mg__stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ocean);
+  font-weight: 700;
+}
+
+.mg__stat strong {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--midnight);
+  font-variant-numeric: tabular-nums;
+  min-width: 1.6ch;
+}
+
+.mg__stat span {
+  font-size: 0.78rem;
+  color: var(--ink-mute);
+}
+
+.mg__time {
+  flex: 1;
+  min-width: 80px;
+  height: 6px;
+  border-radius: 6px;
+  background: rgba(37, 137, 255, 0.12);
+  overflow: hidden;
+}
+
+.mg__time span {
+  display: block;
+  height: 100%;
+  background: var(--grad-electric);
+  transition: width 1s linear;
+}
+
+.mg__area {
+  position: relative;
+  height: min(520px, 62svh);
+  min-height: 380px;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(90% 70% at 50% 110%, rgba(248, 252, 255, 0.85), transparent 60%),
+    linear-gradient(180deg, #2a7fd4 0%, #57b8f5 60%, #a8dcff 100%);
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.mg-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  will-change: transform;
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px rgba(84, 228, 255, 0.7)) drop-shadow(0 6px 8px rgba(16, 44, 80, 0.25));
+  touch-action: manipulation;
+}
+
+.mg-item::before {
+  /* generous tap target */
+  content: '';
+  position: absolute;
+  inset: -12px;
+}
+
+.mg-item svg {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.mg-item--crystal {
+  animation: pulse-glow 0.9s ease-in-out infinite;
+}
+
+.mg-item.is-caught {
+  animation: caught 0.3s var(--ease-out) forwards;
+  pointer-events: none;
+}
+
+@keyframes caught {
+  to {
+    opacity: 0;
+    scale: 1.8;
+  }
+}
+
+.mg-plus {
+  position: absolute;
+  transform: translate(-50%, 0);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(37, 137, 255, 0.9);
+  pointer-events: none;
+  animation: plus 0.8s var(--ease-out) forwards;
+}
+
+@keyframes plus {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50px);
+  }
+}
+
+.mg__buddy {
+  position: absolute;
+  right: 14px;
+  bottom: 10px;
+  width: 104px;
+  z-index: 3;
+  pointer-events: none;
+  display: grid;
+  justify-items: center;
+  animation: buddy-hop 0.4s var(--ease-out);
+}
+
+.mg__buddy svg {
+  width: 100%;
+  animation: bob 2.4s ease-in-out infinite;
+}
+
+@keyframes buddy-hop {
+  50% {
+    transform: translateY(-10px) scale(1.04);
+  }
+}
+
+.mg__buddy-say {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  white-space: nowrap;
+  padding: 6px 12px;
+  border-radius: 14px 14px 4px 14px;
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  color: var(--midnight);
+  background: rgba(248, 252, 255, 0.95);
+  box-shadow: var(--shadow-soft);
+}
+
+.mg__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 18px;
+  text-align: center;
+  padding: 20px;
+  background: rgba(16, 44, 80, 0.18);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.mg__legend {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mg__legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 99px;
+  background: rgba(248, 252, 255, 0.85);
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--ocean);
+}
+
+.mg__ico {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.mg__ico svg {
+  width: 100%;
+  height: 100%;
+}
+
+.mg__overlay--done {
+  background: rgba(16, 44, 80, 0.45);
+  animation: fade-in 0.5s ease both;
+}
+
+.mg__done-star {
+  color: #54e4ff;
+  fill: #54e4ff;
+  animation: pulse-glow 1.6s ease-in-out infinite;
+}
+
+.mg__result {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.3rem);
+  line-height: 1.15;
+  color: #fff;
+  max-width: 560px;
+}
+
+.mg__breakdown {
+  color: var(--ice);
+  font-size: var(--fs-sm);
+}
+
+@media (max-width: 640px) {
+  .mg__box {
+    padding: 8px;
+    margin: 0 calc(var(--gutter) * -0.5);
+  }
+  .mg__buddy {
+    width: 74px;
+  }
+  .mg__buddy-say {
+    font-size: 1rem;
+  }
+}
