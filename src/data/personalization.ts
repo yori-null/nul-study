@@ -14,7 +14,7 @@ export const personalization = {
   nicknames: ['Kodi', 'Sky'],
 
   /** Your name — signs the letters and the final message. */
-  senderName: 'Your name here',
+  senderName: 'Your Batman',
 
   /**
    * The day it all started, as 'YYYY-MM-DD'.
@@ -24,7 +24,7 @@ export const personalization = {
    *
    * Tip: while testing you can also add ?since=2026-01-17 to the URL.
    */
-  startDate: null as string | null,
+  startDate: '2026-10-18' as string | null,
 
   /**
    * Optional manual override for "number of months together".
