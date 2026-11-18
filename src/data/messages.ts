@@ -14,8 +14,8 @@ export const apologyLetter = {
   greeting: 'Dear {name},',
   paragraphs: [
     'First, I want to say something that I should never have to make you guess.',
-    "I'm sorry.",
-    "I'm sorry for the moments when I may have made you feel upset, misunderstood, or unappreciated.",
+    "I'm bburan't.",
+    "I'm bburan't for the moments when I may have made you feel upset, misunderstood, or unappreciated.",
     "I know that words alone cannot undo everything, and I don't expect a simple apology to solve everything.",
     "I just want you to know that I care, that I value what we share, and that I never want you to feel that your feelings don't matter.",
     'I may not always be perfect, but I can always try to understand, improve, and do better.',
@@ -23,7 +23,7 @@ export const apologyLetter = {
   ],
   /** The short line that also appears elsewhere in the experience. */
   heartLine:
-    "I'm sorry. I may not always get everything right, but you deserve honesty, care, and appreciation.",
+    "I'm bburan't. I may not always get everything right, but you deserve honesty, care, and appreciation.",
   signOff: 'With care,',
   button: "There's more...",
 };
@@ -133,7 +133,7 @@ export const finalSurprise = {
   oneMoreThing: 'One More Thing...',
   paragraphs: [
     'Happy Monthiversary.',
-    "I'm sorry for the moments I could have handled better.",
+    "I'm bburan't for the moments I could have handled better.",
     'Thank you for being part of this little chapter.',
     'I hope we continue creating beautiful memories, sharing smiles, and understanding each other a little more every day.',
     'You deserve happiness, appreciation, and kindness.',

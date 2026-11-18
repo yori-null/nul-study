@@ -86,7 +86,7 @@ export default function Letter() {
               {fill(apologyLetter.greeting, vars)}
             </p>
             {apologyLetter.paragraphs.map((p, i) => (
-              <p key={i} className={`letter__line ${p.trim() === "I'm sorry." ? 'letter__sorry' : ''}`} style={{ ['--i' as string]: i + 1 }}>
+              <p key={i} className={`letter__line ${p.trim() === "I'm bburan't." ? 'letter__sorry' : ''}`} style={{ ['--i' as string]: i + 1 }}>
                 {fill(p, vars)}
               </p>
             ))}
