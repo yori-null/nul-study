@@ -24,17 +24,20 @@ export type Memory = {
 };
 
 export const memories: Memory[] = [
-  { type: 'placeholder', art: 'dawn', caption: 'A moment worth keeping', note: 'Add a photo in src/data/memories.ts' },
-  { type: 'placeholder', art: 'ocean', caption: 'Somewhere we smiled', note: 'Your caption goes here' },
-  { type: 'placeholder', art: 'night', caption: 'A late conversation', note: 'Write a little note about it' },
-  { type: 'placeholder', art: 'clouds', caption: 'An ordinary, perfect day', note: 'Add the date too, if you like' },
-  { type: 'placeholder', art: 'stars', caption: 'Something only we understand', note: 'Photos or short videos work' },
-  { type: 'placeholder', art: 'horizon', caption: 'The next memory', note: 'Still waiting to be made' },
+  { type: 'image', src: 'assets/memories/snow.jpg', caption: 'Two of us, braving the cold', note: 'Side by side, even in the snow.' },
+  { type: 'image', src: 'assets/memories/gummies.jpg', caption: 'Sweets for the ride', note: 'A whole box of little colours.' },
+  { type: 'image', src: 'assets/memories/pomegranates.jpg', caption: 'Pomegranate season', note: 'Sweet things, just opening up.' },
+  { type: 'image', src: 'assets/memories/letters.jpg', caption: 'Letters hidden in a sketch', note: 'Some messages only we can read.' },
+  { type: 'image', src: 'assets/memories/stickers.jpg', caption: 'A pile of tiny friends', note: 'Every one of them has a face worth smiling at.' },
+  { type: 'image', src: 'assets/memories/taj-academy.jpg', caption: 'Taj Academy', note: 'Don’t forget our home.' },
 ];
 
 /** Shown when the visitor taps the tree in the Sky Garden. */
 export const treeMemories: string[] = [
-  'A special memory goes here — edit treeMemories in src/data/memories.ts.',
-  'Another little moment you want to remember together.',
-  'A small thing that made you smile.',
+  'Two of us in the snow — side by side, even in the cold.',
+  'A box of gummies, every colour you can think of.',
+  'Pomegranates, cracked open and full of little red jewels.',
+  'Letters hidden in a sketch — some messages only we can read.',
+  'A mountain of tiny dog and cat stickers.',
+  'Taj Academy. Don’t forget our home.',
 ];
