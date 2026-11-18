@@ -1,0 +1,234 @@
+.sticker {
+  display: inline-block;
+  position: relative;
+  flex: none;
+}
+
+.sticker__inner {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sticker svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  /* die-cut white border + soft lift */
+  filter: drop-shadow(0 2.5px 0 #fff) drop-shadow(0 -2.5px 0 #fff) drop-shadow(2.5px 0 0 #fff) drop-shadow(-2.5px 0 0 #fff)
+    drop-shadow(0 10px 12px rgba(16, 44, 80, 0.22));
+}
+
+.sticker.is-silhouette svg {
+  filter: brightness(0) invert(1) opacity(0.5) drop-shadow(0 0 0 transparent);
+}
+
+/* ---- idle personalities ---- */
+.idle-float .sticker__inner {
+  animation: float 4.2s var(--ease-in-out) infinite;
+}
+.idle-bob .sticker__inner {
+  animation: bob 2.4s var(--ease-in-out) infinite;
+}
+.idle-sway .sticker__inner {
+  animation: wiggle 3.6s var(--ease-in-out) infinite;
+  transform-origin: 50% 90%;
+}
+.idle-pulse .sticker__inner {
+  animation: pulse-glow 2.2s var(--ease-in-out) infinite;
+}
+.idle-breathe .sticker__inner {
+  animation: breathe 4s var(--ease-in-out) infinite;
+  transform-origin: 50% 90%;
+}
+.idle-spin .s-rays {
+  animation: spin 16s linear infinite;
+}
+.idle-spin .sticker__inner {
+  animation: bob 3s var(--ease-in-out) infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.03, 0.97);
+  }
+}
+
+/* part animations */
+.sticker .s-eyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: blink 5s infinite;
+}
+.sticker--cat .s-zzz text {
+  animation: zz 2.6s ease-in-out infinite;
+}
+.sticker--cat .s-zzz text:nth-child(2) {
+  animation-delay: 0.6s;
+}
+@keyframes zz {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translateY(2px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+.sticker .s-spout {
+  animation: bob 1.6s var(--ease-in-out) infinite;
+}
+.sticker .s-arm {
+  animation: wave 1.8s var(--ease-in-out) infinite;
+}
+@keyframes wave {
+  0%,
+  60%,
+  100% {
+    transform: rotate(0);
+  }
+  70% {
+    transform: rotate(-18deg);
+  }
+  80% {
+    transform: rotate(8deg);
+  }
+  90% {
+    transform: rotate(-14deg);
+  }
+}
+.sticker .s-wing {
+  animation: flap 0.9s var(--ease-in-out) infinite;
+}
+.sticker .s-wing--r {
+  animation-name: flap-r;
+}
+@keyframes flap {
+  50% {
+    transform: rotate(-16deg);
+  }
+}
+@keyframes flap-r {
+  50% {
+    transform: rotate(16deg);
+  }
+}
+.sticker .s-glints path {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: twinkle 2s ease-in-out infinite;
+}
+.sticker .s-glints path:nth-child(2) {
+  animation-delay: 0.9s;
+}
+.sticker .s-peek {
+  animation: peek 4s var(--ease-in-out) infinite;
+}
+@keyframes peek {
+  0%,
+  100% {
+    transform: translateY(10px);
+  }
+  40%,
+  70% {
+    transform: translateY(0);
+  }
+}
+.sticker .s-trail {
+  animation: trail 1.4s ease-in-out infinite;
+}
+@keyframes trail {
+  50% {
+    opacity: 0.5;
+    transform: translate(-3px, 3px);
+  }
+}
+.sticker .s-string {
+  transform-origin: 60px 78px;
+  animation: wiggle 2.4s ease-in-out infinite;
+}
+.sticker .s-moonlet {
+  transform-origin: 60px 60px;
+  animation: orbit 7s linear infinite;
+}
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- reactions ---- */
+.react-bounce .sticker__inner {
+  animation: bounce 0.8s var(--ease-out);
+}
+.react-spin .sticker__inner {
+  animation: react-spin 0.8s var(--ease-out);
+}
+@keyframes react-spin {
+  from {
+    transform: rotate(0) scale(1);
+  }
+  50% {
+    transform: rotate(200deg) scale(1.15);
+  }
+  to {
+    transform: rotate(360deg) scale(1);
+  }
+}
+.react-jelly .sticker__inner {
+  animation: jelly 0.8s var(--ease-out);
+}
+@keyframes jelly {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(1.18, 0.85);
+  }
+  50% {
+    transform: scale(0.9, 1.12);
+  }
+  75% {
+    transform: scale(1.05, 0.96);
+  }
+}
+.react-wave .sticker__inner {
+  animation: wiggle 0.5s ease-in-out 2;
+}
+.react-wave .s-arm {
+  animation: wave 0.6s ease-in-out infinite;
+  animation-delay: -0.42s;
+}
+.react-flip .sticker__inner {
+  animation: flip 0.9s var(--ease-out);
+}
+@keyframes flip {
+  from {
+    transform: perspective(400px) rotateY(0);
+  }
+  to {
+    transform: perspective(400px) rotateY(360deg);
+  }
+}
+.react-zoom .sticker__inner {
+  animation: zoom 0.7s var(--ease-spring);
+}
+@keyframes zoom {
+  50% {
+    transform: scale(1.35);
+  }
+}
+
+@media (max-width: 640px) {
+  .sticker svg {
+    filter: drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff) drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff)
+      drop-shadow(0 6px 8px rgba(16, 44, 80, 0.2));
+  }
+}

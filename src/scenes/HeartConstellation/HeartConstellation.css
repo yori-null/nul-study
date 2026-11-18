@@ -1,0 +1,129 @@
+.hc {
+  width: min(520px, 100%);
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.hc__svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.hc__bg {
+  fill: #f8fcff;
+  opacity: 0;
+}
+
+.hc.is-active .hc__bg {
+  animation: hc-appear 2s ease forwards, twinkle 3s ease-in-out infinite 2s;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes hc-appear {
+  to {
+    opacity: 0.8;
+  }
+}
+
+.hc__star {
+  transform-box: fill-box;
+  transform-origin: center;
+  cursor: pointer;
+  outline: none;
+  opacity: 0;
+}
+
+.hc.is-active .hc__star {
+  animation: hc-appear-star 1.2s var(--ease-out) forwards;
+}
+
+@keyframes hc-appear-star {
+  from {
+    opacity: 0;
+    scale: 0.3;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.hc__star path {
+  opacity: 0.55;
+  transition: opacity 0.4s, transform 0.4s var(--ease-spring);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.hc__halo {
+  opacity: 0.25;
+  transition: opacity 0.4s;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.hc__star:hover path,
+.hc__star:focus-visible path {
+  opacity: 0.9;
+  transform: scale(1.3);
+}
+
+.hc__star.is-lit path {
+  opacity: 1;
+  transform: scale(1.35);
+}
+
+.hc__star.is-lit .hc__halo {
+  opacity: 1;
+  animation: twinkle 2.2s ease-in-out infinite;
+}
+
+.hc__line {
+  stroke: #a8dcff;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  opacity: 0;
+  transition: stroke-dashoffset 0.7s var(--ease-out), opacity 0.3s;
+  filter: drop-shadow(0 0 4px #54e4ff);
+}
+
+.hc__line.is-on {
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
+.hc__fill {
+  fill: rgba(37, 137, 255, 0.45);
+  opacity: 0;
+  transition: opacity 1.6s ease;
+}
+
+.hc.is-done .hc__fill {
+  opacity: 1;
+  animation: hc-pulse 3s ease-in-out infinite 1.6s;
+}
+
+@keyframes hc-pulse {
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.hc__ui {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  color: var(--sky-light);
+  font-size: var(--fs-sm);
+  text-align: center;
+}
+
+.clean-mode .hc__ui {
+  display: none;
+}

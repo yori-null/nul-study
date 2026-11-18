@@ -1,0 +1,313 @@
+.finale {
+  min-height: 140svh;
+  overflow: hidden;
+  padding-bottom: 120px;
+}
+
+.finale__stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 4s ease;
+}
+
+.finale__stars.is-in {
+  opacity: 1;
+}
+
+.finale__stars span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  animation: field-twinkle 6s ease-in-out infinite;
+}
+
+.finale__stars-2 {
+  width: 2px !important;
+  height: 2px !important;
+  animation-delay: -3s !important;
+  animation-duration: 4.5s !important;
+}
+
+@keyframes field-twinkle {
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.finale__inner {
+  position: relative;
+  width: 100%;
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  text-align: center;
+}
+
+.finale__message {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.2s ease;
+}
+
+.finale__message.is-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.finale__omt {
+  font-size: var(--fs-2xl);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--cloud);
+  text-shadow: 0 0 40px rgba(84, 228, 255, 0.55);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: all 1.4s var(--ease-out);
+}
+
+.finale__message.is-in .finale__omt {
+  opacity: 1;
+  transform: none;
+}
+
+.finale__card {
+  display: grid;
+  gap: 0.75em;
+  padding: clamp(28px, 6vw, 56px) clamp(22px, 6vw, 60px);
+  border-radius: 28px;
+  background: linear-gradient(170deg, rgba(37, 137, 255, 0.16), rgba(16, 44, 80, 0.4));
+  border: 1px solid rgba(168, 220, 255, 0.25);
+  box-shadow: 0 0 80px -20px rgba(37, 137, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: var(--font-hand);
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 1.85rem);
+  line-height: 1.3;
+  color: var(--ice);
+}
+
+.finale__card p {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(10px);
+  transition: all 1.2s var(--ease-out);
+  transition-delay: calc(1s + var(--i) * 0.75s);
+}
+
+.finale__message.is-in .finale__card p,
+.finale__message.is-in .finale__actions {
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+
+.finale__lead {
+  font-family: var(--font-serif);
+  font-size: 1.35em;
+  font-style: italic;
+  color: #fff;
+}
+
+.finale__em {
+  color: #fff;
+  font-size: 1.12em;
+}
+
+.finale__closing {
+  margin-top: 0.6em;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05em;
+  color: var(--sky-light);
+}
+
+.finale__sender {
+  font-size: 1.3em;
+  color: #fff;
+}
+
+.finale__for {
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--sky-light);
+  margin-top: 1em;
+}
+
+.finale__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 1s var(--ease-out);
+  transition-delay: calc(1s + var(--i) * 0.75s);
+}
+
+.finale__skip {
+  font-size: 0.78rem;
+  color: var(--sky-light);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  opacity: 0.75;
+  min-height: 44px;
+}
+
+.finale__top {
+  margin-top: var(--space-8);
+}
+
+/* clean / screenshot mode: only the sky, the heart and the card */
+.clean-mode .finale__card p {
+  transition-delay: 0s !important;
+}
+
+.clean-mode .finale {
+  min-height: 100svh;
+}
+
+/* final gift box */
+.fbox-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 130;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 24px;
+  padding: var(--gutter);
+  background: radial-gradient(60% 50% at 50% 45%, rgba(18, 81, 138, 0.6), rgba(5, 15, 34, 0.88));
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: fade-in 0.5s ease both;
+}
+
+.fbox {
+  position: relative;
+  width: 180px;
+  height: 170px;
+  opacity: 0;
+}
+
+.fbox__body {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 0;
+  height: 118px;
+  border-radius: 12px;
+  background:
+    linear-gradient(90deg, transparent 43%, #f8fcff 43% 57%, transparent 57%),
+    linear-gradient(160deg, #57b8f5, #2589ff 50%, #12518a);
+  box-shadow: inset 0 -16px 30px rgba(16, 44, 80, 0.3), 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+}
+
+.fbox__lid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 24px;
+  height: 36px;
+  border-radius: 10px;
+  z-index: 2;
+  background:
+    linear-gradient(90deg, transparent 43%, #f8fcff 43% 57%, transparent 57%),
+    linear-gradient(180deg, #a8dcff, #2589ff);
+  box-shadow: 0 8px 14px -6px rgba(16, 44, 80, 0.5);
+}
+
+.fbox__bow {
+  position: absolute;
+  left: 50%;
+  top: -26px;
+}
+
+.fbox__bow i {
+  position: absolute;
+  top: 0;
+  width: 36px;
+  height: 28px;
+  border: 7px solid #f8fcff;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+.fbox__bow i:first-child {
+  right: 0;
+  transform: rotate(-20deg);
+}
+
+.fbox__bow i:last-child {
+  left: 0;
+  transform: rotate(20deg);
+}
+
+.fbox__light {
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  width: 260px;
+  height: 260px;
+  margin: -130px 0 0 -130px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(248, 252, 255, 0.95), rgba(84, 228, 255, 0.5) 35%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fbox__note {
+  max-width: 460px;
+  padding: 26px 26px 22px;
+  border-radius: 24px;
+  background: var(--grad-paper);
+  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  animation: pop-in 0.8s var(--ease-spring) 0.3s both;
+}
+
+.fbox__note .eyebrow {
+  color: var(--electric);
+}
+
+.fbox__note p {
+  font-family: var(--font-hand);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 1.9rem);
+  line-height: 1.25;
+  color: var(--midnight);
+}
+
+.fbox__sign {
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  color: var(--ocean);
+}
+
+.fbox__actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.fbox__note .btn--ghost {
+  color: var(--ocean);
+  background: var(--ice);
+}
