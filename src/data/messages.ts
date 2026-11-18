@@ -139,6 +139,7 @@ export const finalSurprise = {
     'You deserve happiness, appreciation, and kindness.',
     'And this little digital world?',
     'I made it just for you.',
+    'And don’t forget our home.',
   ],
   closing: 'With love, always.',
   button: 'Open one last surprise',
